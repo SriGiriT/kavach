@@ -1,30 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_aws_s3_client/flutter_aws_s3_client.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-void aws() async {
-  final AwsS3Client s3client = AwsS3Client(
-      region: 'ap-south-1',
-      // host: 'cyberuser',
-      bucketId: 'securelykavach',
-      accessKey: 'AKIA33FHZNAJ3OOWXWXB',
-      secretKey: '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');
-  // final listBucketResult =
-  //     await s3client.listObjects(prefix: "dir/dir2/", delimiter: "/");
-  // print(listBucketResult.toString());
 
-  final response = await s3client.getObject("ex.json");
-  s3client
-      .getObject('ex.json')
-      .then((value) => print('done'))
-      .onError((error, stackTrace) => print('cannot fetch '));
-}
 
 void main() async {
-  // aws();
+  // aws('ex.json');
   runApp(const MyApp());
 }
 
@@ -65,7 +44,9 @@ class _MainDashboardState extends State<MainDashboard> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
+          children: <Widget>[
+            
+          ],
         ),
       ),
     );
